@@ -5,14 +5,11 @@
 }
 
   
-  body {
     .bebas-neue-regular {
       font-family: "Bebas Neue", sans-serif;
       font-weight: 400;
       font-style: bold;
     }
-    
-  }
 
   
   /* Navbar */
@@ -29,7 +26,7 @@
   }
   
   .navbar__container {
-    display: top;
+    display: flex;
     justify-content: space-between;
     height: 80px;
     z-index: 1;
@@ -44,7 +41,7 @@
     top: 0;
     left: 0;
     z-index: 999; /* ensures it's on top */
-    padding: 1rem; /* optional: space around the text */
+    padding: 0rem; /* optional: space around the text */
     background-color: black; /* optional: to blend with site background */
     font-size: 2rem; /* adjust to taste */
     text-decoration: none;
@@ -204,13 +201,10 @@
   }
   
   .main__content h1 {
-    .main__content h1 {
-      font-size: 4rem;
-      color: white;
-      
-    }
-    
+    font-size: 4rem;
+    color: white;
   }
+  
   
   .main__content h2 {
     font-size: 15rem;
@@ -282,19 +276,10 @@
     
   
   
-  .main__img--container img {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px; /* or your preferred size */
-    height: auto;
-    z-index: 1000;
+  #main__img {
+    width: 80%;
+    height: 80%;
   }
-  
-  
-  
-  
   
   /* Responsive Hero */
   @media screen and (max-width: 768px) {
@@ -339,8 +324,8 @@
   }
   
   .services h1 {
-    font-size: 5rem;
-    background-color: #808080;
+    font-size: 2.5rem;
+    background-color: #fff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 5rem;
@@ -452,6 +437,8 @@
 .social__media--wrap {
   background-color: #111;
   color: white;
+  text-align: center;
+  font-size: larger;
 }
 
 .footer__logo a{
@@ -468,19 +455,11 @@
   color: #f77062;
   transition: 0.3s ease;
 }
-.footer__link--items h2 {
-  font-size: 10rem;  /* Adjust as needed */
-}
-
-.footer__link--items a {
-  font-size: 3rem;  /* Adjust email link size */
-}
-
 
 /* Footer + Social Media Icons */
 .social__media {
   background-color: #111;
-  padding: 1rem 0;
+  padding: 2rem 0;
   color: white;
   text-align: center;
 }
@@ -501,18 +480,41 @@
 .social__icons--link:hover {
   color: #f77062;
 }
+@media screen and (max-width: 480px) {
+  .navbar__menu {
+    font-size: 1.5rem; /* Reduce nav font size for phones */
+  }
 
-.hero-logo-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: black;
-  overflow: hidden;
+  .main__content h1,
+  .main__content h2 {
+    font-size: 2rem; /* Smaller hero text on small screens */
+  }
+
+  .services__card {
+    width: 100%; /* Full width on tiny screens */
+    margin: 1rem 0;
+  }
+
+  .main__container,
+  .navbar__container {
+    padding: 0 20px; /* Less horizontal space on phones */
+  }
+
+  .main__btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
+@media screen and (max-width: 480px) {
+  .main__container {
+    padding: 0 20px;
+  }
 
-.hero-logo {
-  width: 70vw;
-  height: auto;
-  max-width: 900px;
+  .navbar__container {
+    padding: 0 20px;
+  }
+
+  .services {
+    padding: 2rem 1rem;
+  }
 }
