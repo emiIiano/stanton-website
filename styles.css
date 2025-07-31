@@ -18,6 +18,8 @@
 ------------------------*/
 body {
   background-color: #000;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -56,10 +58,10 @@ a {
   top: 0;
   left: 0;
   z-index: 999;
-  padding: 0;
   background-color: black;
   font-size: 5rem;
   color: white;
+  padding-left: 10px;
 }
 
 .fa-gem {
@@ -122,75 +124,25 @@ a {
   display: none;
 }
 
-@media screen and (max-width: 320px) {
-  #mobile-menu {
-    display: block;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    transform: none;
-  }
+.navbar__toggle .bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
 
-  .navbar__toggle .bar {
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  }
+#mobile-menu.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
 
-  .navbar__menu {
-    display: grid;
-    grid-template-columns: 1fr;
-    position: absolute;
-    top: -1000px;
-    opacity: 0;
-    width: 100%;
-    background: #131313;
-    transition: all 0.5s ease;
-    z-index: -1;
-  }
+#mobile-menu.is-active .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
 
-  .navbar__menu.active {
-    top: 100%;
-    opacity: 1;
-    z-index: 99;
-    font-size: 1.6rem;
-  }
-
-  .navbar__item {
-    width: 100%;
-  }
-
-  .navbar__links {
-    text-align: center;
-    padding: 2rem;
-    display: table;
-    width: 100%;
-  }
-
-  .navbar__btn {
-    padding-bottom: 2rem;
-  }
-
-  .button {
-    width: 80%;
-    height: 80px;
-    margin: 0 auto;
-  }
-
-  #mobile-menu.is-active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  #mobile-menu.is-active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  #mobile-menu.is-active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
+#mobile-menu.is-active .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /*------------------------
@@ -244,6 +196,8 @@ a {
   margin-top: 2rem;
   cursor: pointer;
   transition: all 0.35s;
+  width: 100%;
+  max-width: 300px;
 }
 
 .main__btn a {
@@ -271,8 +225,9 @@ a {
 }
 
 #main__img {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
 
 /*------------------------
@@ -302,7 +257,7 @@ a {
 
 .services__card {
   margin: 1rem;
-  height: 545px;
+  height: auto;
   width: 700px;
   border-radius: 4px;
   background-size: cover;
@@ -400,7 +355,52 @@ a {
 /*------------------------
   Responsive Layouts
 ------------------------*/
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 1000px) {
+  /* Mobile Menu */
+  #mobile-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .navbar__menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: absolute;
+    top: -1000px;
+    opacity: 0;
+    width: 100%;
+    background: #131313;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+
+  .navbar__menu.active {
+    top: 100%;
+    opacity: 1;
+    z-index: 99;
+    font-size: 1.6rem;
+  }
+
+  .navbar__item {
+    width: 100%;
+  }
+
+  .navbar__links {
+    text-align: center;
+    padding: 2rem;
+    display: table;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem auto;
+    height: auto;
+  }
+
   .main__container {
     grid-template-columns: 1fr;
     text-align: center;
@@ -420,44 +420,8 @@ a {
     font-size: 1.5rem;
   }
 
-  .services h1 {
-    font-size: 2rem;
-    margin-top: 12rem;
-  }
-
-  .services__card {
-    width: 300px;
-  }
-
-  .navbar__container {
-    padding: 0 20px;
-  }
-}
-
-@media screen and (max-width: 320px) {
   #navbar__logo {
-    font-size: 3rem;
-    padding-left: 3px;
-  }
-
-  .navbar__menu {
-    font-size: 4rem;
-    padding-top: rem;
-  }
-
-  .main__content h1,
-  .main__content h2 {
-    font-size: 2rem;
-  }
-
-  .main__content p {
-    font-size: 1.2rem;
-  }
-
-  .main__btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-    margin: 2rem auto;
+    font-size: 2.5rem;
   }
 
   .services {
@@ -465,9 +429,9 @@ a {
   }
 
   .services__card {
-    width: 125%;
-    height: 10%;
-    margin: 1rem 0;
+    width: 90%;
+    max-width: 350px;
+    height: auto;
   }
 
   .services__card h2,
@@ -476,10 +440,10 @@ a {
     position: relative;
     left: auto;
     top: auto;
-    margin-top: 6rem;
+    margin-top: 1rem;
   }
 
   .footer__logo a {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
